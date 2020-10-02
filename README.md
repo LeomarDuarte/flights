@@ -52,4 +52,4 @@ Buscar voos e realizar o agrupamento dos mesmos de acordo com tipo de tarifa, pr
 - Code coverage
 
     - Após a execução dos testes, será criado o diretório `tests/reports` dentro do path `tests`.
-    - Copiar o path do arquivo `tests/reports/coverage/index.html` e coloar em seu navegador para ver a anãlise de cobertura.
+    - Copiar o path do arquivo `tests/reports/coverage/index.html` e coloar em seu navegador para ver a análise de cobertura.
