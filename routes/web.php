@@ -1,5 +1,6 @@
 <?php
 
+
 /*
 |--------------------------------------------------------------------------
 | Application Routes
@@ -11,6 +12,8 @@
 |
 */
 
-$router->get('/', function () use ($router) {
-    return $router->app->version();
+$router->group(['prefix' => 'api/v1', 'namespace' => 'Api\v1'], function () use ($router) {
+    $router->get('flights', ['as' => 'flights', 'uses' => 'FlightController@index']);
+    $router->get('flights/outbound/{value}', ['as' => 'flights.outbound', 'uses' => 'FlightController@getFlightsOutbound']);
+    $router->get('flights/inbound/{value}', ['as' => 'flights.inbound', 'uses' => 'FlightController@getFlightsInbound']);
 });
