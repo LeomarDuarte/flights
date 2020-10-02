@@ -4,7 +4,7 @@ namespace App\Services\Contracts;
 
 interface FlightServiceInterface
 {
-    public function getFlights();
+    public function getFlights(array $departureTypes = []);
 
     public function groupFlights(): void;
 

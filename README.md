@@ -11,9 +11,9 @@ Buscar voos e realizar o agrupamento dos mesmos de acordo com tipo de tarifa, pr
 
 - http://localhost:PORTA/api/v1/flights
 
-- http://localhost:PORTA/api/v1/flights/outbound/1
+- http://localhost:PORTA/api/v1/flights?outbound=1
 
-- http://localhost:PORTA/api/v1/flights/inbound/1
+- http://localhost:PORTA/api/v1/flights?inbound=1
 
 ### Setup Project.
 

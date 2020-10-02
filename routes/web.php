@@ -14,6 +14,4 @@
 
 $router->group(['prefix' => 'api/v1', 'namespace' => 'Api\v1'], function () use ($router) {
     $router->get('flights', ['as' => 'flights', 'uses' => 'FlightController@index']);
-    $router->get('flights/outbound/{outbound}', ['as' => 'flights.outbound', 'uses' => 'FlightController@getFlightsOutbound']);
-    $router->get('flights/inbound/{inbound}', ['as' => 'flights.inbound', 'uses' => 'FlightController@getFlightsInbound']);
 });

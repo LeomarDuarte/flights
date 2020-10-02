@@ -16,15 +16,25 @@ class FlightService implements FlightServiceInterface
     {
         $this->guzzleClient = $guzzleClient;
         $this->endPoint = env('API_URL_FLIGHTS');
-        $response = $this->guzzleClient->makeRequest('get', $this->endPoint);
-        $this->flights['flights'] = json_decode($response->getBody()->getContents());
+        $this->flights['flights'] = $this->guzzleClient->makeRequest('get', $this->endPoint);
         $this->flights['groups']  = [];
     }
 
-    public function getFlights()
+    public function getFlights(array $departureType = [])
     {
         try {
-            $this->groupFlights();
+            switch (array_key_first($departureType)) {
+                case 'outbound':
+                    return $this->getFlightsOutbound();
+
+                case 'inbound':
+                    return $this->getFlightsInbound();
+
+                default:
+                    $this->groupFlights();
+                break;
+            }
+            
             return $this->flights;
         } catch (\Throwable $th) {
             return ['erro' => 'Failed to retrieve '];
