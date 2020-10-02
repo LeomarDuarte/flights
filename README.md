@@ -35,7 +35,7 @@ Buscar voos e realizar o agrupamento dos mesmos de acordo com tipo de tarifa, pr
 
 - Criar a chave de criptografia
 
-    `php artisan key:generate
+    `php artisan key:generate`
 
 ### Up Application
 
