@@ -19,8 +19,10 @@ class GuzzleClient implements GuzzleClientInterface
 
     public function makeRequest(string $verb, string $url)
     {
-        return  $this->client->request($verb, $url, ['headers' => array(
+        $response = $this->client->request($verb, $url, ['headers' => array(
             'Content-Type'  => 'application/x-www-form-urlencoded'
         )]);
+
+        return json_decode($response->getBody()->getContents());
     }
 }

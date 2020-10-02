@@ -1,20 +1,17 @@
 <?php
 
 use Illuminate\Http\Response;
-use Laravel\Lumen\Testing\WithoutMiddleware;
-use Laravel\Lumen\Testing\DatabaseTransactions;
 use App\Services\Contracts\FlightServiceInterface;
 
 class FlightControllerTest extends TestCase
 {
     private $flightService;
-    private const OUTBOUND = 1;
-    private const INBOUND = 1;
+    private const OUTBOUND = array('param' => '?outbound=1');
+    private const INBOUND = array('param' => '?inbound=1');
 
     public function setUp(): void
     {
         parent::setUp();
-        $this->flightService = $this->app->make('App\Services\Contracts\FlightServiceInterface');
     }
 
 	/** @test */
@@ -52,7 +49,7 @@ class FlightControllerTest extends TestCase
     /** @test */
     public function should_return_all_flights_outbound()
     {
-        $endPoint = route('flights.outbound') . self::OUTBOUND;
+        $endPoint = route('flights') . self::OUTBOUND['param'] ;
         
         $this->get($endPoint, []);
         
@@ -82,7 +79,7 @@ class FlightControllerTest extends TestCase
     /** @test */
     public function should_return_all_flights_inbound()
     {
-        $endPoint = route('flights.inbound') . self::INBOUND;
+        $endPoint = route('flights') . self::INBOUND['param'] ;
 
         $this->get($endPoint, []);
 

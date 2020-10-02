@@ -17,30 +17,12 @@ class FlightController extends Controller
         $this->flightService = $flightService;
     }
 
-    public function index(): \Illuminate\Http\JsonResponse
+    public function index(Request $request): \Illuminate\Http\JsonResponse
     {
         try {
-            return response()->json($this->flightService->getFlights(), Response::HTTP_OK);
+            return response()->json($this->flightService->getFlights($request->all()), Response::HTTP_OK);
         } catch (\Throwable $th) {
             return response()->json(['erro' => 'Failed to retrieve flights!'], Response::HTTP_INTERNAL_SERVER_ERRO);
-        }
-    }
-
-    public function getFlightsOutbound($outbound): \Illuminate\Http\JsonResponse
-    {
-        try {
-            return response()->json($this->flightService->getFlightsOutbound(), Response::HTTP_OK);
-        } catch (\Throwable $th) {
-            return response()->json(['erro' => 'Failed to retrieve flights outbounds!'], Response::HTTP_INTERNAL_SERVER_ERRO);
-        }
-    }
-
-    public function getFlightsInbound($inbound): \Illuminate\Http\JsonResponse
-    {
-        try {
-            return response()->json($this->flightService->getFlightsInbound(), Response::HTTP_OK);
-        } catch (\Throwable $th) {
-            return response()->json(['erro' => 'Failed to retrieve flights inbounds!'], Response::HTTP_INTERNAL_SERVER_ERRO);
         }
     }
 }
