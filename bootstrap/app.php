@@ -46,6 +46,16 @@ $app->singleton(
     App\Console\Kernel::class
 );
 
+$app->bind(
+    'App\Services\Contracts\GuzzleClientInterface',
+    'App\Services\GuzzleClient'
+);
+
+$app->bind(
+    'App\Services\Contracts\FlightServiceInterface',
+    'App\Services\FlightService'
+);
+
 /*
 |--------------------------------------------------------------------------
 | Register Config Files
