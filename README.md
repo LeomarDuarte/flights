@@ -15,6 +15,10 @@ Buscar voos e realizar o agrupamento dos mesmos de acordo com tipo de tarifa, pr
 
 - http://localhost:PORTA/api/v1/flights?inbound=1
 
+### API Documentation
+
+- [URL](https://documenter.getpostman.com/view/2613074/TVReeBHS)
+
 ### Setup Project.
 
 - Fazer o clone do projeto
